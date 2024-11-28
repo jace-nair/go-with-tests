@@ -1,36 +1,14 @@
 package main
 
-import "fmt"
-
-const (
-	spanish = "Spanish"
-	french  = "French"
-
-	englishHelloPrefix = "Hello, "
-	spanishHelloPrefix = "Hola, "
-	frenchHelloPrefix  = "Bonjour, "
+import (
+	"fmt"
+	hello "go-with-tests/hello"
+	"go-with-tests/integers"
+	"go-with-tests/iterations"
 )
 
-func Hello(name string, language string) string {
-	if name == "" {
-		name = "World"
-	}
-
-	return greetingPrefix(language) + name
-}
-
-func greetingPrefix(language string) (prefix string) {
-	switch language {
-	case french:
-		prefix = frenchHelloPrefix
-	case spanish:
-		prefix = spanishHelloPrefix
-	default:
-		prefix = englishHelloPrefix
-	}
-	return
-}
-
 func main() {
-	fmt.Println(Hello("Jace", ""))
+	fmt.Println(hello.Hello("Jace", ""))    // From hello pkg
+	fmt.Println(integers.Add(2, 3))         // From integers pkg
+	fmt.Println(iterations.Repeat("jace ")) // From iterations pkg
 }
